@@ -1,0 +1,63 @@
+﻿<Page x:Class="pr1_salon.Pages.CustomerRecord"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:pr1_salon.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Background="White"
+      Title="CustomerRecord">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Данные об услуге -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,20">
+            <TextBlock Text="Данные об услуге" FontWeight="Bold" FontSize="18" Margin="0,0,0,10" />
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Наименование: " FontWeight="Bold" />
+                <TextBlock x:Name="tbServiceName" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Длительность: " FontWeight="Bold" />
+                <TextBlock x:Name="tbServiceDuration" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Форма записи клиента -->
+        <StackPanel Grid.Row="1" Margin="0,0,0,20">
+            <TextBlock Text="Запись клиента на услугу" FontWeight="Bold" FontSize="18" Margin="0,0,0,10" />
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <TextBlock Text="Выберите клиента:" />
+                <ComboBox x:Name="cbClients" Width="300" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <TextBlock Text="Дата услуги:" />
+                <DatePicker x:Name="dpServiceDate" Width="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <TextBlock Text="Время начала услуги:" />
+                <TextBox x:Name="tbStartTime" Width="100" ToolTip="Введите время в формате ЧЧ:ММ" PreviewTextInput="tbStartTime_PreviewTextInput" TextChanged="tbStartTime_TextChanged" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Время окончания: " FontWeight="Bold" />
+                <TextBlock x:Name="tbEndTime" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Кнопки действий -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="btnsave" Content="Сохранить" Width="120" Margin="5" Click="btnsave_Click" />
+            <Button x:Name="btncancel" Content="Отмена" Width="120" Margin="5" Click="btncancel_Click" />
+        </StackPanel>
+    </Grid>
+</Page>
